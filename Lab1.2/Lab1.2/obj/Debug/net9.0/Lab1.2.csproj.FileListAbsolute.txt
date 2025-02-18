@@ -1,0 +1,14 @@
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\bin\Debug\net9.0\Lab1.2.exe
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\bin\Debug\net9.0\Lab1.2.deps.json
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\bin\Debug\net9.0\Lab1.2.runtimeconfig.json
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\bin\Debug\net9.0\Lab1.2.dll
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\bin\Debug\net9.0\Lab1.2.pdb
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\obj\Debug\net9.0\Lab1.2.GeneratedMSBuildEditorConfig.editorconfig
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\obj\Debug\net9.0\Lab1.2.AssemblyInfoInputs.cache
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\obj\Debug\net9.0\Lab1.2.AssemblyInfo.cs
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\obj\Debug\net9.0\Lab1.2.csproj.CoreCompileInputs.cache
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\obj\Debug\net9.0\Lab1.2.dll
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\obj\Debug\net9.0\refint\Lab1.2.dll
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\obj\Debug\net9.0\Lab1.2.pdb
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\obj\Debug\net9.0\Lab1.2.genruntimeconfig.cache
+E:\GitHub\declarative-ui\declarative-ui\Lab1.2\Lab1.2\obj\Debug\net9.0\ref\Lab1.2.dll
