@@ -1,22 +1,10 @@
 ﻿<Window x:Class="Lab2.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Grid Layout" Height="300" Width="300">
-    <Grid ShowGridLines="True">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-
-        <Label Grid.Row="0" Grid.Column="1" Content="Label"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="TextBox"
-                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-        <Button Grid.Row="2" Grid.Column="1" Content="Button"/>
-    </Grid>
+        Title="StackPanel Layout" Height="300" Width="300">
+    <StackPanel>
+        <Label Content="Label"/>
+        <TextBox Text="TextBox"/>
+        <Button Content="Button"/>
+    </StackPanel>
 </Window>
