@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Lab2
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для _1.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class _1 : Window
     {
-        public MainWindow()
+        public _1()
         {
             InitializeComponent();
         }
