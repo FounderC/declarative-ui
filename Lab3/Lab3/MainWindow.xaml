@@ -4,7 +4,6 @@
         xmlns:local="clr-namespace:Lab3"
         Title="Калькулятор" Height="400" Width="300">
 
-    <!-- Ресурси вікна -->
     <Window.Resources>
         <!-- Стиль для кнопок -->
         <Style TargetType="Button">
@@ -16,8 +15,7 @@
         </Style>
     </Window.Resources>
 
-    <!-- Головний Grid: 2 рядки 
-         1) Верхній - Display (TextBox)
+    <!-- 1) Верхній - Display (TextBox)
          2) Нижній - сітка з кнопками -->
     <Grid>
         <Grid.RowDefinitions>
@@ -25,7 +23,6 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <!-- Текстове поле для відображення поточного значення/результату -->
         <TextBox x:Name="txtDisplay"
                  Grid.Row="0"
                  Margin="10"
@@ -36,7 +33,6 @@
                  IsReadOnly="True"
                  Text="0"/>
 
-        <!-- Основна сітка для кнопок -->
         <Grid Grid.Row="1" Margin="10">
             <!-- 5 рядків, 4 стовпці -->
             <Grid.RowDefinitions>
@@ -109,7 +105,7 @@
                     Grid.Row="3" Grid.Column="3"
                     Command="{x:Static local:CalculatorCommands.Add}"/>
 
-            <!-- Ряд 4: кнопка "=" (Calculate) на всю ширину -->
+            <!-- Ряд 4: кнопка = -->
             <Button Content="="
                     Grid.Row="4" Grid.ColumnSpan="4"
                     Command="{x:Static local:CalculatorCommands.Calculate}"

@@ -8,17 +8,15 @@ namespace Lab3
 {
     public partial class MainWindow : Window
     {
-        // Змінні для зберігання першого операнда, операції тощо
         private double? _firstValue = null;
         private string _operation = null;
-        private bool _isNewEntry = true; // коли true, ми набираємо нове число (очищуємо Display)
+        private bool _isNewEntry = true;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            // Створюємо CommandBinding для кожної команди
-            // (цифри)
+            // Створюємо CommandBinding
             CommandBindings.Add(new CommandBinding(CalculatorCommands.Num0, Execute_Num, CanExecute_Always));
             CommandBindings.Add(new CommandBinding(CalculatorCommands.Num1, Execute_Num, CanExecute_Always));
             CommandBindings.Add(new CommandBinding(CalculatorCommands.Num2, Execute_Num, CanExecute_Always));
@@ -39,7 +37,6 @@ namespace Lab3
             CommandBindings.Add(new CommandBinding(CalculatorCommands.Multiply, Execute_Operation, CanExecute_Always));
             CommandBindings.Add(new CommandBinding(CalculatorCommands.Divide, Execute_Operation, CanExecute_Always));
 
-            // Clear і Calculate
             CommandBindings.Add(new CommandBinding(CalculatorCommands.Clear, Execute_Clear, CanExecute_Always));
             CommandBindings.Add(new CommandBinding(CalculatorCommands.Calculate, Execute_Calculate, CanExecute_Always));
 
@@ -66,13 +63,11 @@ namespace Lab3
 
             if (_isNewEntry)
             {
-                // Якщо ми щойно натиснули операцію або =
                 txtDisplay.Text = num;
                 _isNewEntry = false;
             }
             else
             {
-                // Дописуємо до кінця
                 if (txtDisplay.Text == "0")
                     txtDisplay.Text = num;
                 else
@@ -80,12 +75,10 @@ namespace Lab3
             }
         }
 
-        // ---- Додаємо крапку (.) ----
         private void Execute_Dot(object sender, ExecutedRoutedEventArgs e)
         {
             if (_isNewEntry)
             {
-                // Починаємо нове число з "0."
                 txtDisplay.Text = "0.";
                 _isNewEntry = false;
             }
@@ -104,7 +97,6 @@ namespace Lab3
             {
                 if (_firstValue.HasValue && _operation != null && !_isNewEntry)
                 {
-                    // Виконуємо проміжний розрахунок
                     _firstValue = CalculateResult(_firstValue.Value, value, _operation);
                     txtDisplay.Text = _firstValue.Value.ToString(CultureInfo.InvariantCulture);
                 }
@@ -114,7 +106,6 @@ namespace Lab3
                 }
             }
 
-            // Задаємо операцію
             if (e.Command == CalculatorCommands.Add) _operation = "+";
             else if (e.Command == CalculatorCommands.Subtract) _operation = "-";
             else if (e.Command == CalculatorCommands.Multiply) _operation = "*";
@@ -139,7 +130,6 @@ namespace Lab3
                     }
                 }
             }
-            // Після натискання "=" готуємося до нового введення
             _operation = null;
             _isNewEntry = true;
         }
@@ -153,7 +143,6 @@ namespace Lab3
             _isNewEntry = true;
         }
 
-        // Допоміжний метод для обчислень
         private double? CalculateResult(double first, double second, string op)
         {
             switch (op)
@@ -172,7 +161,6 @@ namespace Lab3
             }
         }
 
-        // CanExecute - завжди true (спрощено)
         private void CanExecute_Always(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;

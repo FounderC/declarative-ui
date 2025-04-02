@@ -25,7 +25,7 @@ namespace Lab2._4
                 CanExecute_Open);
             this.CommandBindings.Add(openBinding);
 
-            // Прив'язка власної команди Clear
+            // Прив'язка команди Clear
             CommandBinding clearBinding = new CommandBinding(
                 CustomCommands.Clear,
                 Execute_Clear,
@@ -87,12 +87,10 @@ namespace Lab2._4
 
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            // Можлива додаткова логіка
         }
 
         private void TextBox_TextChanged_1(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            // Можлива додаткова логіка
         }
     }
 }
