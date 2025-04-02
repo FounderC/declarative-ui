@@ -1,12 +1,41 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "E:\\GitHub\\declarative-ui\\declarative-ui\\Lab1.2\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7018B1A0-5004-42D4-B6F2-9F755134633E}|Lab1.2\\Lab1.2.csproj|e:\\github\\declarative-ui\\declarative-ui\\lab1.2\\lab1.2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7018B1A0-5004-42D4-B6F2-9F755134633E}|Lab1.2\\Lab1.2.csproj|solutionrelative:lab1.2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\GitHub\\declarative-ui\\declarative-ui\\Lab1.2\\Lab1.2\\Program.cs",
+              "RelativeDocumentMoniker": "Lab1.2\\Program.cs",
+              "ToolTip": "E:\\GitHub\\declarative-ui\\declarative-ui\\Lab1.2\\Lab1.2\\Program.cs",
+              "RelativeToolTip": "Lab1.2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T00:16:50.245Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
