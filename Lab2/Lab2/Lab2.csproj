@@ -67,6 +67,7 @@
     <Compile Include="4\4.xaml.cs">
       <DependentUpon>4.xaml</DependentUpon>
     </Compile>
+    <Compile Include="4\CustomCommands.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

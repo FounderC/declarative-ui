@@ -1,9 +1,11 @@
 ﻿<Window x:Class="Lab2._4._4"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Lab2._4"
         Title="TextEditor" Height="400" Width="600">
 
     <Window.Resources>
+        <!-- Ресурс градієнтної заливки (жовто-блакитно-жовтий) -->
         <LinearGradientBrush x:Key="LinearPanelBrush"
                              StartPoint="0,0" EndPoint="1,0">
             <GradientStop Color="Yellow" Offset="0" />
@@ -18,6 +20,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <!-- Панель інструментів -->
         <Border Grid.Row="0"
                 BorderBrush="#FFCBBEBE"
                 BorderThickness="2"
@@ -25,34 +28,40 @@
                 Margin="5"
                 Background="{StaticResource LinearPanelBrush}">
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Button ToolTip="Відкрити">
+                <!-- Кнопка "Відкрити" із вбудованою командою Open -->
+                <Button ToolTip="Відкрити" Command="Open">
                     <Image Source="images/open.png" Width="32" Height="32"/>
                 </Button>
-                <Button ToolTip="Очистити">
+                <!-- Кнопка "Очистити" із власною командою Clear -->
+                <Button ToolTip="Очистити" Command="{x:Static local:CustomCommands.Clear}">
                     <Image Source="images/clear.png" Width="32" Height="32"/>
                 </Button>
-                <Button ToolTip="Копіювати">
+                <!-- Кнопка "Копіювати" із вбудованою командою Copy -->
+                <Button ToolTip="Копіювати" Command="Copy" CommandTarget="{Binding ElementName=txtDocument}">
                     <Image Source="images/copy.png" Width="32" Height="32"/>
                 </Button>
-                <Button ToolTip="Вставити">
+                <!-- Кнопка "Вставити" із вбудованою командою Paste -->
+                <Button ToolTip="Вставити" Command="Paste" CommandTarget="{Binding ElementName=txtDocument}">
                     <Image Source="images/paste.png" Width="32" Height="32"/>
                 </Button>
             </StackPanel>
         </Border>
 
-        <Border
+        <!-- Область тексту та нижня панель -->
+        <Border Grid.Row="1"
                 BorderBrush="#FFCBBEBE"
                 BorderThickness="2"
                 CornerRadius="10"
                 Margin="5,56,5,5"
-                Background="{StaticResource LinearPanelBrush}" Grid.RowSpan="2">
+                Background="{StaticResource LinearPanelBrush}">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBox Grid.Row="0"
+                <!-- Текстове поле для редагування -->
+                <TextBox x:Name="txtDocument" Grid.Row="0"
                          AcceptsReturn="True"
                          VerticalScrollBarVisibility="Auto"
                          TextWrapping="Wrap"
@@ -61,10 +70,9 @@
                     TEXT
                 </TextBox>
 
+                <!-- Панель з регулюванням розміру шрифту та кнопкою "Зберегти" -->
                 <DockPanel Grid.Row="1" LastChildFill="False">
-                    <Label Content="Розмір шрифту:"
-                           DockPanel.Dock="Left"
-                           Margin="5"/>
+                    <Label Content="Розмір шрифту:" DockPanel.Dock="Left" Margin="5"/>
                     <Slider x:Name="fontSlider"
                             DockPanel.Dock="Left"
                             Margin="4"
@@ -72,7 +80,9 @@
                             Minimum="12"
                             Maximum="100"
                             Value="24"/>
+                    <!-- Кнопка "Зберегти" із командою Save -->
                     <Button Content="OK"
+                            Command="Save"
                             DockPanel.Dock="Right"
                             Margin="5"
                             Style="{x:Null}"/>
@@ -81,4 +91,3 @@
         </Border>
     </Grid>
 </Window>
-
