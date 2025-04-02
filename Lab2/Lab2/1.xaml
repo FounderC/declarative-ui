@@ -24,6 +24,6 @@
         <Button Content="button"
                 Canvas.Left="84" 
                 Canvas.Top="60"
-                Width="34" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                Width="48" HorizontalAlignment="Left" VerticalAlignment="Center"/>
     </Canvas>
 </Window>
