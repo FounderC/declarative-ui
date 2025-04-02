@@ -1,0 +1,121 @@
+﻿<Window x:Class="Lab3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Lab3"
+        Title="Калькулятор" Height="400" Width="300">
+
+    <!-- Ресурси вікна -->
+    <Window.Resources>
+        <!-- Стиль для кнопок -->
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+    </Window.Resources>
+
+    <!-- Головний Grid: 2 рядки 
+         1) Верхній - Display (TextBox)
+         2) Нижній - сітка з кнопками -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Текстове поле для відображення поточного значення/результату -->
+        <TextBox x:Name="txtDisplay"
+                 Grid.Row="0"
+                 Margin="10"
+                 FontSize="24"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Center"
+                 HorizontalContentAlignment="Right"
+                 IsReadOnly="True"
+                 Text="0"/>
+
+        <!-- Основна сітка для кнопок -->
+        <Grid Grid.Row="1" Margin="10">
+            <!-- 5 рядків, 4 стовпці -->
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Ряд 0: 7, 8, 9, ÷ -->
+            <Button Content="7"
+                    Grid.Row="0" Grid.Column="0"
+                    Command="{x:Static local:CalculatorCommands.Num7}"/>
+            <Button Content="8"
+                    Grid.Row="0" Grid.Column="1"
+                    Command="{x:Static local:CalculatorCommands.Num8}"/>
+            <Button Content="9"
+                    Grid.Row="0" Grid.Column="2"
+                    Command="{x:Static local:CalculatorCommands.Num9}"/>
+            <Button Content="÷"
+                    Grid.Row="0" Grid.Column="3"
+                    Command="{x:Static local:CalculatorCommands.Divide}"/>
+
+            <!-- Ряд 1: 4, 5, 6, × -->
+            <Button Content="4"
+                    Grid.Row="1" Grid.Column="0"
+                    Command="{x:Static local:CalculatorCommands.Num4}"/>
+            <Button Content="5"
+                    Grid.Row="1" Grid.Column="1"
+                    Command="{x:Static local:CalculatorCommands.Num5}"/>
+            <Button Content="6"
+                    Grid.Row="1" Grid.Column="2"
+                    Command="{x:Static local:CalculatorCommands.Num6}"/>
+            <Button Content="×"
+                    Grid.Row="1" Grid.Column="3"
+                    Command="{x:Static local:CalculatorCommands.Multiply}"/>
+
+            <!-- Ряд 2: 1, 2, 3, − -->
+            <Button Content="1"
+                    Grid.Row="2" Grid.Column="0"
+                    Command="{x:Static local:CalculatorCommands.Num1}"/>
+            <Button Content="2"
+                    Grid.Row="2" Grid.Column="1"
+                    Command="{x:Static local:CalculatorCommands.Num2}"/>
+            <Button Content="3"
+                    Grid.Row="2" Grid.Column="2"
+                    Command="{x:Static local:CalculatorCommands.Num3}"/>
+            <Button Content="−"
+                    Grid.Row="2" Grid.Column="3"
+                    Command="{x:Static local:CalculatorCommands.Subtract}"/>
+
+            <!-- Ряд 3: 0, ., C, + -->
+            <Button Content="0"
+                    Grid.Row="3" Grid.Column="0"
+                    Command="{x:Static local:CalculatorCommands.Num0}"/>
+            <Button Content="."
+                    Grid.Row="3" Grid.Column="1"
+                    Command="{x:Static local:CalculatorCommands.Dot}"/>
+            <Button Content="C"
+                    Grid.Row="3" Grid.Column="2"
+                    Command="{x:Static local:CalculatorCommands.Clear}"/>
+            <Button Content="+"
+                    Grid.Row="3" Grid.Column="3"
+                    Command="{x:Static local:CalculatorCommands.Add}"/>
+
+            <!-- Ряд 4: кнопка "=" (Calculate) на всю ширину -->
+            <Button Content="="
+                    Grid.Row="4" Grid.ColumnSpan="4"
+                    Command="{x:Static local:CalculatorCommands.Calculate}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Height="50" />
+        </Grid>
+    </Grid>
+</Window>
