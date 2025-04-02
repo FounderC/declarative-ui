@@ -4,8 +4,8 @@
         xmlns:local="clr-namespace:Lab2._4"
         Title="TextEditor" Height="383" Width="600">
 
+    <!-- Градієнтна заливка -->
     <Window.Resources>
-        <!-- Ресурс градієнтної заливки (жовто-блакитно-жовтий) -->
         <LinearGradientBrush x:Key="LinearPanelBrush"
                              StartPoint="0,0" EndPoint="1,0">
             <GradientStop Color="Yellow" Offset="0" />
@@ -15,43 +15,36 @@
     </Window.Resources>
 
     <Grid>
+        <!-- Верхній рядок для «панелі інструментів», нижній – для тексту -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <!-- Панель інструментів -->
+        <!-- Рамка для інструментів (Open, Clear, Copy, Paste) -->
         <Border Grid.Row="0"
-                BorderBrush="#FFCBBEBE"
-                BorderThickness="2"
-                CornerRadius="10"
-                Margin="5,5,5,0"
+                BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"
+                Margin="5,5,5,0" 
                 Background="{StaticResource LinearPanelBrush}">
             <StackPanel Orientation="Horizontal" Margin="5">
-                <!-- Кнопка "Відкрити" із вбудованою командою Open -->
                 <Button ToolTip="Відкрити" Command="Open">
                     <Image Source="images/open.png" Width="32" Height="32"/>
                 </Button>
-                <!-- Кнопка "Очистити" із власною командою Clear -->
                 <Button ToolTip="Очистити" Command="{x:Static local:CustomCommands.Clear}">
                     <Image Source="images/clear.png" Width="32" Height="32"/>
                 </Button>
-                <!-- Кнопка "Копіювати" із вбудованою командою Copy -->
                 <Button ToolTip="Копіювати" Command="Copy" CommandTarget="{Binding ElementName=txtDocument}">
                     <Image Source="images/copy.png" Width="32" Height="32"/>
                 </Button>
-                <!-- Кнопка "Вставити" із вбудованою командою Paste -->
                 <Button ToolTip="Вставити" Command="Paste" CommandTarget="{Binding ElementName=txtDocument}">
                     <Image Source="images/paste.png" Width="32" Height="32"/>
                 </Button>
             </StackPanel>
         </Border>
 
-        <!-- Область тексту та нижня панель -->
+        <!-- Рамка з TextBox та кнопкою Save (OK) + Slider для зміни шрифту -->
         <Border Grid.Row="1"
-                BorderBrush="#FFCBBEBE"
-                BorderThickness="2"
-                CornerRadius="10"
+                BorderBrush="#FFCBBEBE" BorderThickness="2" CornerRadius="10"
                 Margin="5,10,5,5"
                 Background="{StaticResource LinearPanelBrush}">
             <Grid Margin="5">
@@ -60,17 +53,17 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <!-- Текстове поле для редагування -->
-                <TextBox x:Name="txtDocument" Grid.Row="0"
+                <TextBox x:Name="txtDocument" 
+                         Grid.Row="0" 
                          AcceptsReturn="True"
                          VerticalScrollBarVisibility="Auto"
                          TextWrapping="Wrap"
                          FontSize="{Binding ElementName=fontSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"
-                         Margin="5" TextChanged="TextBox_TextChanged_1">
+                         Margin="5" 
+                         TextChanged="TextBox_TextChanged_1">
                     TEXT
                 </TextBox>
 
-                <!-- Панель з регулюванням розміру шрифту та кнопкою "Зберегти" -->
                 <DockPanel Grid.Row="1" LastChildFill="False">
                     <Label Content="Розмір шрифту:" DockPanel.Dock="Left" Margin="5"/>
                     <Slider x:Name="fontSlider"
@@ -80,7 +73,6 @@
                             Minimum="12"
                             Maximum="100"
                             Value="24"/>
-                    <!-- Кнопка "Зберегти" із командою Save -->
                     <Button Content="OK"
                             Command="Save"
                             DockPanel.Dock="Right"

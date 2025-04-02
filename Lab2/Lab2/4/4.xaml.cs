@@ -11,35 +11,30 @@ namespace Lab2._4
         {
             InitializeComponent();
 
-            // Прив'язка команди Save
-            CommandBinding saveBinding = new CommandBinding(
-                ApplicationCommands.Save,
-                Execute_Save,
-                CanExecute_Save);
+            // Save
+            CommandBinding saveBinding = new CommandBinding(ApplicationCommands.Save,
+                                                            Execute_Save,
+                                                            CanExecute_Save);
             this.CommandBindings.Add(saveBinding);
 
-            // Прив'язка команди Open
-            CommandBinding openBinding = new CommandBinding(
-                ApplicationCommands.Open,
-                Execute_Open,
-                CanExecute_Open);
+            // Open
+            CommandBinding openBinding = new CommandBinding(ApplicationCommands.Open,
+                                                            Execute_Open,
+                                                            CanExecute_Open);
             this.CommandBindings.Add(openBinding);
 
-            // Прив'язка команди Clear
-            CommandBinding clearBinding = new CommandBinding(
-                CustomCommands.Clear,
-                Execute_Clear,
-                CanExecute_Clear);
+            // Clear (власна команда)
+            CommandBinding clearBinding = new CommandBinding(CustomCommands.Clear,
+                                                             Execute_Clear,
+                                                             CanExecute_Clear);
             this.CommandBindings.Add(clearBinding);
         }
 
-        // Обробник CanExecute для Save
+        // Save
         private void CanExecute_Save(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = !string.IsNullOrWhiteSpace(txtDocument.Text);
         }
-
-        // Обробник Execute для Save
         private void Execute_Save(object sender, ExecutedRoutedEventArgs e)
         {
             try
@@ -49,17 +44,15 @@ namespace Lab2._4
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Помилка збереження: " + ex.Message);
+                MessageBox.Show("Помилка: " + ex.Message);
             }
         }
 
-        // Обробник CanExecute для Open
+        // Open
         private void CanExecute_Open(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = true;
         }
-
-        // Обробник Execute для Open
         private void Execute_Open(object sender, ExecutedRoutedEventArgs e)
         {
             if (File.Exists("D:\\myFile.txt"))
@@ -73,24 +66,19 @@ namespace Lab2._4
             }
         }
 
-        // Обробник CanExecute для Clear
+        // Clear
         private void CanExecute_Clear(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = !string.IsNullOrWhiteSpace(txtDocument.Text);
         }
-
-        // Обробник Execute для Clear
         private void Execute_Clear(object sender, ExecutedRoutedEventArgs e)
         {
             txtDocument.Clear();
         }
 
-        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-        }
-
         private void TextBox_TextChanged_1(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
+            // Додаткова логіка при зміні тексту (якщо треба)
         }
     }
 }
