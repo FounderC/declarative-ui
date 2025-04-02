@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Lab2._4"
-        Title="TextEditor" Height="400" Width="600">
+        Title="TextEditor" Height="383" Width="600">
 
     <Window.Resources>
         <!-- Ресурс градієнтної заливки (жовто-блакитно-жовтий) -->
@@ -25,7 +25,7 @@
                 BorderBrush="#FFCBBEBE"
                 BorderThickness="2"
                 CornerRadius="10"
-                Margin="5"
+                Margin="5,5,5,0"
                 Background="{StaticResource LinearPanelBrush}">
             <StackPanel Orientation="Horizontal" Margin="5">
                 <!-- Кнопка "Відкрити" із вбудованою командою Open -->
@@ -52,7 +52,7 @@
                 BorderBrush="#FFCBBEBE"
                 BorderThickness="2"
                 CornerRadius="10"
-                Margin="5,56,5,5"
+                Margin="5,10,5,5"
                 Background="{StaticResource LinearPanelBrush}">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
