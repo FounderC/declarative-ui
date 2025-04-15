@@ -1,8 +1,44 @@
 ﻿<Window x:Class="Лаб4.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <DataGrid Name="dataGrid" AutoGenerateColumns="True" Margin="10"/>
+        Title="Books Database" Height="350" Width="550"
+        Loaded="Window_Loaded">
+
+    <Grid DataContext="{Binding ElementName=listBooks, Path=SelectedItem}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Список, який відображає ISBN (як основне поле списку) -->
+        <ListBox x:Name="listBooks"
+                 Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                 Margin="5"
+                 ItemsSource="{Binding}"
+                 DisplayMemberPath="ISBN"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+        <TextBlock Grid.Row="1" Margin="5" Text="ISBN:"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5"
+                 Text="{Binding Path=ISBN, Mode=OneWay}" />
+
+        <TextBlock Grid.Row="2" Margin="5" Text="Автори:"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="5"
+                 Text="{Binding Path=Автори, Mode=OneWay}" />
+
+        <TextBlock Grid.Row="3" Margin="5" Text="Видавництво:"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="5"
+                 Text="{Binding Path=Видавництво, Mode=OneWay}" />
+
+        <TextBlock Grid.Row="4" Margin="5" Text="Рік видання:"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="5"
+                 Text="{Binding Path=РікВидання, Mode=OneWay}" />
     </Grid>
 </Window>

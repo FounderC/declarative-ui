@@ -8,34 +8,32 @@ namespace Лаб4
 {
     public class AdoAssistant
     {
-        // Отримання рядка підключення з App.config (переконайтеся, що ім'я відповідає)
-        private string connectionString = ConfigurationManager.ConnectionStrings["connectionString_ADO"].ConnectionString;
+        private string connectionString = ConfigurationManager
+            .ConnectionStrings["connectionString_ADO"].ConnectionString;
 
-        // Змінна для зберігання даних (DataTable)
         private DataTable dt = null;
 
-        // Метод, що завантажує дані з БД у DataTable
         public DataTable TableLoad()
         {
             if (dt != null)
                 return dt;
 
             dt = new DataTable();
-
-            // Використовуємо using для автоматичного закриття підключення
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection con = new SqlConnection(connectionString))
             {
-                // Створення команди
-                SqlCommand command = connection.CreateCommand();
-                // Наприклад, вибірка даних із таблиці Table_Address
-                command.CommandText = "SELECT ID, (Surname + ' ' + Name) AS FullName, Address, Place, PostalCode FROM Table_Address";
-
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                string query = "SELECT ISBN, Автори, Видавництво, РікВидання FROM Books";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 
                 try
                 {
-                    // Відкриття підключення та завантаження даних
-                    connection.Open();
+                    con.Open();
+
+                    if (con.State == ConnectionState.Open)
+                    {
+                        MessageBox.Show("Підключення до бази даних успішне!");
+                    }
+
                     adapter.Fill(dt);
                 }
                 catch (Exception ex)

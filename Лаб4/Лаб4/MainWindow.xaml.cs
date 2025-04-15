@@ -10,19 +10,24 @@ namespace Лаб4
         public MainWindow()
         {
             InitializeComponent();
-            LoadData();  // Викликаємо метод завантаження даних при запуску вікна
         }
 
-        private void LoadData()
+        // Подія, що спрацьовує після завантаження вікна
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Створення екземпляру класу AdoAssistant
+            // Створюємо екземпляр класу доступу до БД
             AdoAssistant ado = new AdoAssistant();
 
-            // Отримання DataTable з даними
-            DataTable dt = ado.TableLoad();
+            // Викликаємо метод, який повертає DataTable з даними
+            DataTable booksTable = ado.TableLoad();
 
-            // Прив'язка даних до DataGrid. Використовується DefaultView, щоб DataGrid міг коректно їх відобразити
-            dataGrid.ItemsSource = dt.DefaultView;
+            // Прив'язуємо дані до ListBox - тепер кожен рядок відображається у списку
+            // (Поле списку = ISBN, що ми вказали в XAML через DisplayMemberPath)
+            listBooks.DataContext = booksTable.DefaultView;
+
+            // Якщо потрібно, можна відразу вибрати перший елемент списку
+            listBooks.SelectedIndex = 0;
+            listBooks.Focus();
         }
     }
 }
