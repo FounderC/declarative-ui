@@ -6,7 +6,6 @@ using System.Windows;
 
 namespace Лаб4
 {
-
     public class AdoAssistant
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["connectionString_ADO"].ConnectionString;
@@ -35,7 +34,6 @@ namespace Лаб4
             return dt;
         }
 
-        // Метод додавання нового запису
         public int InsertRecord(string isbn, string authors, string publisher, int year)
         {
             int rowsAffected = 0;
@@ -63,7 +61,6 @@ namespace Лаб4
             return rowsAffected;
         }
 
-        // Метод оновлення існуючого запису
         public int UpdateRecord(string isbn, string authors, string publisher, int year)
         {
             int rowsAffected = 0;
@@ -91,7 +88,6 @@ namespace Лаб4
             return rowsAffected;
         }
 
-        // Метод видалення запису
         public int DeleteRecord(string isbn)
         {
             int rowsAffected = 0;
