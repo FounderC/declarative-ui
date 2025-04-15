@@ -58,7 +58,7 @@
                          AcceptsReturn="True"
                          VerticalScrollBarVisibility="Auto"
                          TextWrapping="Wrap"
-                         FontSize="{Binding ElementName=fontSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}"
+                         FontSize="{Binding ElementName=widthSlider, Path=Value}"
                          Margin="5" 
                          TextChanged="TextBox_TextChanged_1">
                     TEXT
@@ -66,13 +66,11 @@
 
                 <DockPanel Grid.Row="1" LastChildFill="False">
                     <Label Content="Розмір шрифту:" DockPanel.Dock="Left" Margin="5"/>
-                    <Slider x:Name="fontSlider"
-                            DockPanel.Dock="Left"
-                            Margin="4"
-                            MinWidth="100"
-                            Minimum="12"
-                            Maximum="100"
-                            Value="24"/>
+                    <Slider x:Name="widthSlider"
+                            Minimum="100"
+                            Maximum="400"
+                            Value="200" 
+                            Margin="4"/>
                     <Button Content="OK"
                             Command="Save"
                             DockPanel.Dock="Right"

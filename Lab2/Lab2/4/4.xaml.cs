@@ -78,7 +78,6 @@ namespace Lab2._4
 
         private void TextBox_TextChanged_1(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            // Додаткова логіка при зміні тексту (якщо треба)
         }
     }
 }

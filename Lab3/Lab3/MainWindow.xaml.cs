@@ -89,7 +89,7 @@ namespace Lab3
             }
         }
 
-        // ---- Операції (+, -, ×, ÷) ----
+        // +, -, ×, ÷
         private void Execute_Operation(object sender, ExecutedRoutedEventArgs e)
         {
             double value;
@@ -114,7 +114,7 @@ namespace Lab3
             _isNewEntry = true;
         }
 
-        // ---- Кнопка "=" ----
+        // =
         private void Execute_Calculate(object sender, ExecutedRoutedEventArgs e)
         {
             if (_firstValue.HasValue && _operation != null && !_isNewEntry)
@@ -134,7 +134,7 @@ namespace Lab3
             _isNewEntry = true;
         }
 
-        // ---- "C" (Clear) ----
+        // Clear
         private void Execute_Clear(object sender, ExecutedRoutedEventArgs e)
         {
             txtDisplay.Text = "0";
