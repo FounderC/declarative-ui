@@ -8,22 +8,22 @@ namespace Лаб4
 {
     public class AdoAssistant
     {
-        private string connectionString = ConfigurationManager.ConnectionStrings["connectionString_ADO"].ConnectionString;
+        private string connectionString =
+            ConfigurationManager.ConnectionStrings["connectionString_ADO"].ConnectionString;
 
         public DataTable TableLoad()
         {
             DataTable dt = new DataTable();
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "SELECT ISBN, Автори, Видавництво, РікВидання FROM Books";
+                string query = @"
+                    SELECT ISBN, Автори, Назва, Видавництво, РікВидання
+                    FROM Books";
                 SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 try
                 {
                     con.Open();
-                    if (con.State == ConnectionState.Open)
-                        MessageBox.Show("Підключення до бази даних успішне!");
-
                     adapter.Fill(dt);
                 }
                 catch (Exception ex)
@@ -34,17 +34,21 @@ namespace Лаб4
             return dt;
         }
 
-        public int InsertRecord(string isbn, string authors, string publisher, int year)
+        public int InsertRecord(string isbn, string authors, string title, string publisher, int year)
         {
             int rowsAffected = 0;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Books (ISBN, Автори, Видавництво, РікВидання) " +
-                               "VALUES (@ISBN, @Автори, @Видавництво, @РікВидання)";
+                string query = @"
+                    INSERT INTO Books
+                        (ISBN, Автори, Назва, Видавництво, РікВидання)
+                    VALUES
+                        (@ISBN, @Автори, @Назва, @Видавництво, @РікВидання)";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@ISBN", isbn);
                     cmd.Parameters.AddWithValue("@Автори", authors);
+                    cmd.Parameters.AddWithValue("@Назва", title);
                     cmd.Parameters.AddWithValue("@Видавництво", publisher);
                     cmd.Parameters.AddWithValue("@РікВидання", year);
                     try
@@ -61,17 +65,23 @@ namespace Лаб4
             return rowsAffected;
         }
 
-        public int UpdateRecord(string isbn, string authors, string publisher, int year)
+        public int UpdateRecord(string isbn, string authors, string title, string publisher, int year)
         {
             int rowsAffected = 0;
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                string query = "UPDATE Books SET Автори = @Автори, Видавництво = @Видавництво, РікВидання = @РікВидання " +
-                               "WHERE ISBN = @ISBN";
+                string query = @"
+                    UPDATE Books
+                    SET Автори      = @Автори,
+                        Назва       = @Назва,
+                        Видавництво = @Видавництво,
+                        РікВидання  = @РікВидання
+                    WHERE ISBN = @ISBN";
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("@ISBN", isbn);
                     cmd.Parameters.AddWithValue("@Автори", authors);
+                    cmd.Parameters.AddWithValue("@Назва", title);
                     cmd.Parameters.AddWithValue("@Видавництво", publisher);
                     cmd.Parameters.AddWithValue("@РікВидання", year);
                     try

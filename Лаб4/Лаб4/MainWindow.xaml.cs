@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace Лаб4
 {
@@ -31,6 +32,7 @@ namespace Лаб4
             {
                 listBooks.SelectedIndex = -1;
                 txtISBN.Clear();
+                txtName.Clear();
                 txtAuthors.Clear();
                 txtPublisher.Clear();
                 txtYear.Clear();
@@ -39,6 +41,7 @@ namespace Лаб4
             }
 
             string isbn = txtISBN.Text.Trim();
+            string name = txtName.Text.Trim();
             string authors = txtAuthors.Text.Trim();
             string publisher = txtPublisher.Text.Trim();
             int year;
@@ -55,7 +58,7 @@ namespace Лаб4
                 return;
             }
 
-            int rowsAffected = ado.InsertRecord(isbn, authors, publisher, year);
+            int rowsAffected = ado.InsertRecord(isbn, name, authors, publisher, year);
 
             if (rowsAffected > 0)
             {
@@ -72,6 +75,7 @@ namespace Лаб4
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             string isbn = txtISBN.Text;
+            string name = txtName.Text;
             string authors = txtAuthors.Text;
             string publisher = txtPublisher.Text;
             int year;
@@ -81,11 +85,10 @@ namespace Лаб4
                 return;
             }
 
-            int rows = ado.UpdateRecord(isbn, authors, publisher, year);
+            int rows = ado.UpdateRecord(isbn, name, authors, publisher, year);
             MessageBox.Show("Оновлено записів: " + rows);
             listBooks.DataContext = ado.TableLoad().DefaultView;
         }
-
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {

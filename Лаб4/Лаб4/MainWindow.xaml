@@ -27,29 +27,34 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <ListBox x:Name="listBooks"
                          Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                          Margin="5"
                          ItemsSource="{Binding}"
-                         DisplayMemberPath="ISBN"
+                         DisplayMemberPath="Назва"
                          ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+                <TextBlock Grid.Row="2" Margin="5" Text="Назва:"/>
+                <TextBox x:Name="txtName" Grid.Row="2" Grid.Column="1" Margin="5"
+                         Text="{Binding Path=Назва, Mode=OneWay}" />
 
                 <TextBlock Grid.Row="1" Margin="5" Text="ISBN:"/>
                 <TextBox x:Name="txtISBN" Grid.Row="1" Grid.Column="1" Margin="5"
                          Text="{Binding Path=ISBN, Mode=OneWay}" />
 
-                <TextBlock Grid.Row="2" Margin="5" Text="Автори:"/>
-                <TextBox x:Name="txtAuthors" Grid.Row="2" Grid.Column="1" Margin="5"
+                <TextBlock Grid.Row="3" Margin="5" Text="Автори:"/>
+                <TextBox x:Name="txtAuthors" Grid.Row="3" Grid.Column="1" Margin="5"
                          Text="{Binding Path=Автори, Mode=OneWay}" />
 
-                <TextBlock Grid.Row="3" Margin="5" Text="Видавництво:"/>
-                <TextBox x:Name="txtPublisher" Grid.Row="3" Grid.Column="1" Margin="5"
+                <TextBlock Grid.Row="4" Margin="5" Text="Видавництво:"/>
+                <TextBox x:Name="txtPublisher" Grid.Row="4" Grid.Column="1" Margin="5"
                          Text="{Binding Path=Видавництво, Mode=OneWay}" />
 
-                <TextBlock Grid.Row="4" Margin="5" Text="Рік видання:"/>
-                <TextBox x:Name="txtYear" Grid.Row="4" Grid.Column="1" Margin="5"
+                <TextBlock Grid.Row="5" Margin="5" Text="Рік видання:"/>
+                <TextBox x:Name="txtYear" Grid.Row="5" Grid.Column="1" Margin="5"
                          Text="{Binding Path=РікВидання, Mode=OneWay}" />
             </Grid>
         </Grid>
